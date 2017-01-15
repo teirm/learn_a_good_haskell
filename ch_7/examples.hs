@@ -7,7 +7,12 @@ module Shapes
 , baseRect
 ) where 
 
+-- The type is Point
+-- The value constructor is Point
 data Point = Point Float Float deriving (Show)
+
+-- The type is Shape
+-- The value constructors are Circle and Rectangle
 data Shape = Circle Point Float | Rectangle Point Point 
     deriving (Show)
 
@@ -26,4 +31,22 @@ baseCircle r = Circle (Point 0 0) r
 baseRect :: Float -> Float -> Shape
 baseRect width height = Rectangle (Point 0 0) (Point width height)
 
+-- Car data type
+data Car = Car { company :: String
+               , model :: String
+               , year :: Int
+               } deriving (Show)
 
+-- Vector data type
+-- Type class constraint enforced in functions
+-- Not data declarations
+data Vector a = Vector a a a deriving (Show)
+
+vplus :: (Num a) => Vector a -> Vector a -> Vector a
+(Vector i j k) `vplus` (Vector l m n) = Vector (i+l) (j+m) (k+n)
+
+dotProd :: (Num a) => Vector a -> Vector a -> a
+(Vector i j k) `dotProd` (Vector l m n) = i*l + j*m + k*n
+
+vmult :: (Num a) => Vector a -> a -> Vector a
+(Vector i j k) `vmult` m = Vector (i*m) (j*m) (k*m)

@@ -55,3 +55,15 @@ vmult :: (Num a) => Vector a -> a -> Vector a
 data Day = Monday | Tuesday | Wednesday | Thursday | Friday | Saturday | Sunday
            deriving (Eq, Ord, Show, Read, Bounded, Enum)
 
+-- Before Data.map
+phoneBook :: [(String, String)]
+phoneBook = 
+    [("betty", "555-2938")
+    ,("bonnie", "452-2928")
+    ,("patsy", "493-2928")
+    ,("lucille", "205-2928")
+    ,("wendy", "939-8282")
+    ,("penny", "853-2429")
+    ]
+
+

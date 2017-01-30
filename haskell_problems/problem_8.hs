@@ -1,5 +1,4 @@
+import Data.List 
+
 compress :: (Eq a) => [a] -> [a]
-compress [] = []
-compress (x:xs) =
-    let no_dups = [a | a <- xs, a /= x]
-    in x : compress no_dups
+compress x = map head $ group x 
